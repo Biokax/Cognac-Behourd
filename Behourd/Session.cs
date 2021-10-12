@@ -12,7 +12,8 @@ namespace Behourd
         public void AddPlayers(params Player[] players)
         {
             _players.AddRange(players);
-            PlayerSessionCount++;
+
+            PlayerSessionCount += players.Length;
         }
 
 

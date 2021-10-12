@@ -10,18 +10,19 @@ namespace Behourd
 
         public int PlayerTeamCount { get; private set; }
 
-        public Player[] Players { get; }
+        public List<Player> Players { get; private set; }
 
         public Team(Player player)
         {
-            Players = new Player[] { player };
+            Players = new List<Player> { player };
             PlayerTeamCount++;
         }
         
 
-        public void AddPlayers(params Player[] players)
+        public void AddPlayers(Player player)
         {
-            listPlayer.AddRange(players);
+            listPlayer.Add(player);
+            Players.AddRange(listPlayer);
             PlayerTeamCount++;
         }
     }

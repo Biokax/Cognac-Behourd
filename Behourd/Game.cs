@@ -26,7 +26,14 @@ namespace Behourd
 
                 }else
                 {
-                    //TODO
+                    if(listTeam.First().PlayerTeamCount < listTeam.Last().PlayerTeamCount)
+                    {
+                        listTeam.First().AddPlayers(player);
+                    }
+                    else
+                    {
+                        listTeam.Last().AddPlayers(player);
+                    }
                 }
             }
             Teams = listTeam.ToArray();
