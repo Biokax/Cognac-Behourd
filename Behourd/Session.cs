@@ -5,12 +5,16 @@ namespace Behourd
 {
     public class Session
     {
+        public int PlayerSessionCount { get; private set; }
+
         private readonly List<Player> _players = new();
 
         public void AddPlayers(params Player[] players)
         {
             _players.AddRange(players);
+            PlayerSessionCount++;
         }
+
 
         public IGame StartGame()
         {

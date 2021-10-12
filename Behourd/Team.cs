@@ -1,14 +1,29 @@
-﻿namespace Behourd
-{
-   public class Team : ITeam
-            {
-                public int PlayerCount => 1;
-                public int TeamCount => 2;
-                public Player[] Players { get; }
+﻿using System.Collections.Generic;
+using System.Linq;
 
-                public Team(Player player)
-                {
-                    Players = new Player[] { player };
-                }
-            }
+namespace Behourd
+{
+    public class Team : ITeam
+    {
+        List<Player> listPlayer = new List<Player>();
+
+
+        public int PlayerTeamCount { get; private set; }
+
+        public Player[] Players { get; }
+
+        public Team(Player player)
+        {
+            Players = new Player[] { player };
+            PlayerTeamCount++;
+        }
+        
+
+        public void AddPlayers(params Player[] players)
+        {
+            listPlayer.AddRange(players);
+            PlayerTeamCount++;
+        }
+    }
 }
+
