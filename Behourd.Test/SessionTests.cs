@@ -34,9 +34,9 @@ namespace Behourd.Test
 
             Assert.True(teams.Length == 2);
             Assert.True(teams.All(team => team.PlayerTeamCount >= 1));
-            Assert.NotEqual(teams.First().Players.Single(), teams.Last().Players.Single());
-            Assert.True(session.PlayerSessionCount == 1);
-            //Assert.True(teams.First().PlayerCount + teams.Last().PlayerCount == session.PlayerCount);
+            Assert.NotEqual(teams.First().Players.First(), teams.Last().Players.First());
+            Assert.True(session.PlayerSessionCount == 3);
+            Assert.Equal(teams.First().PlayerTeamCount + teams.Last().PlayerTeamCount, session.PlayerSessionCount) ;
         }
     }
 }
